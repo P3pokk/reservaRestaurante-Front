@@ -1,7 +1,5 @@
-
 // Importações necessárias
 import React, { useState } from 'react';
-// importar o css dps
 import './App.css';
 
 const LoginPage = () => {
@@ -16,22 +14,46 @@ const LoginPage = () => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aqui você poderia adicionar a lógica de autenticação
+
     console.log(`Email: ${email}, Senha: ${password}`);
-    // Após a autenticação, você poderia redirecionar para outra página
-    // Por exemplo, window.location.href = '/home';
+
+    // Aqui você poderia adicionar a lógica de autenticação
+    // Por exemplo, uma chamada a uma API de autenticação
+    try {
+      const response = await fetch('/api/authenticate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+      });
+
+      if (response.ok) {
+        // Autenticação bem-sucedida, redirecionar para a página inicial
+        window.location.href = '/home';
+      } else {
+        // Tratar falhas de autenticação
+        console.error('Falha na autenticação');
+        alert('Email ou senha incorretos. Tente novamente.');
+      }
+    } catch (error) {
+      console.error('Erro ao autenticar:', error);
+      alert('Ocorreu um erro. Tente novamente mais tarde.');
+    }
   };
 
   return (
     <div className="login-page">
-      <h2> <img src="https://th.bing.com/th/id/OIG3.I5w8nfQMb7vzxAZuigyT?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Logo" /></h2>
+      <h2>
+        <img src="https://th.bing.com/th/id/OIG3.I5w8nfQMb7vzxAZuigyT?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Logo" />
+      </h2>
       <form onSubmit={handleSubmit}>
-        <div className="buttons">
+        <div className="Buttons">
           <label htmlFor="email"></label>
           <input 
-            placeholder= ' Email'
+            placeholder="Email"
             type="email"
             id="email"
             value={email}
@@ -41,8 +63,8 @@ const LoginPage = () => {
         </div>
         <div className="Buttons">
           <label htmlFor="password"></label>
-          <input className='input'
-            placeholder= ' Senha'
+          <input
+            placeholder="Senha"
             type="password"
             id="password"
             value={password}
@@ -50,12 +72,13 @@ const LoginPage = () => {
             required
           />
         </div>
-        <button className="button-entrar">Entrar</button>
+        <button type="submit" className="button-entrar">Entrar</button>
+        <button type="button" className="button-cadastrarse" onClick={() => window.location.href = '/register'}>
+          Criar nova conta
+        </button>
       </form>
     </div>
   );
 };
 
 export default LoginPage;
-
-
