@@ -1,0 +1,25 @@
+.login-page {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.login-page img {
+    width: 175px;
+}
+
+.Buttons {
+    margin-top: 5px;
+  
+}
+
+.button-entrar {
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: black;
+    color : white;
+    height: 30px;
+    width: 180px;
+}
