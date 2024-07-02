@@ -1,15 +1,15 @@
 import { Link, Route, BrowserRouter, Routes } from "react-router-dom";
+import LoginPage from "./pages/Login";
+import Home from "./pages/Home";
+import Cadastro from "./pages/Cadastro";
 
-import Home from "./pages/Home.jsx";
-import Cadastro from "./pages/Cadastro.jsx";
-import Login from "./pages/Login.jsx";
 
 const Rotas = () => {
    return(
        <BrowserRouter>
             <Route path="/" component = { Home } />
             <Route path="/cadastro" component = { Cadastro } />
-            <Route path="/cadastro" component = { Login } />
+            <Route path="/login" component = { LoginPage } />
        </BrowserRouter>
    )
 }
