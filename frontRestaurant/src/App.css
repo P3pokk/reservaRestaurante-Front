@@ -1,8 +1,7 @@
 body {
   font-family: sans-serif;
   padding: 20px;
-  background-color: #331e15;
-
+  background-color: #000000;
 }
 
 .logo {
@@ -24,7 +23,7 @@ body {
 .menuHeader {
   display: flex;
   gap: 20px;
-  
+  margin-left: 500px;
 }
 
 ul {
@@ -65,3 +64,16 @@ section {
   color: white;
   font-size: 50px;
 }
+
+.background {
+  background: url(https://images.pexels.com/photos/21134733/pexels-photo-21134733/free-photo-of-cidade-meio-urbano-restaurante-barra.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 700px;
+  width: 1150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
